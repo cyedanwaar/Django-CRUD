@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <style>
+        td, th {
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CRUD Operations</h1>
+
+    <h2>Enrolled Students</h2>
+
+    <table style="border: 2px solid black; border-collapse: collapse;">
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Department</th>
+            <th>Semester</th>
+            <th>Admission</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+        {% for student in data %}
+        <tr>
+            <th>{{student.name}}</th>
+            <th>{{student.roll}}</th>
+            <th>{{student.dept}}</th>
+            <th>{{student.sem}}</th>
+            <th>{{student.ad}}</th>
+            <th><a href="{% url 'update' student.id %}">Update</a></th>
+            <th><a href="{% url 'delete' student.id %}">Delete</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <hr>
+
+    <h2>Enroll New Students</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name"><br>
+        <input type="text" name="roll" placeholder="Roll Number"><br>
+        <input type="text" name="dept" placeholder="Department"><br>
+        <input type="text" name="sem" placeholder="Semester"><br>
+        <button type="submit">Enroll +</button>
+    </form>
+
+
+</body>
+</html>

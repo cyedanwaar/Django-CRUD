@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <style>
+        td, th {
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CRUD Operations</h1>
+    <br>
+    <h2>Update Record "{{student.name}}"</h2>
+
+    <table style="border: 2px solid black; border-collapse: collapse;">
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Department</th>
+            <th>Semester</th>
+            <th>Admission</th>
+            <th>Update</th>
+        </tr>
+
+        
+        <tr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <th><input type="text" name="name" value="{{student.name}}"></th>
+                <th><input type="text" name="roll" value="{{student.roll}}"></th>
+                <th><input type="text" name="dept" value="{{student.dept}}"></th>
+                <th><input type="text" name="sem" value="{{student.sem}}"></th>
+                <th>{{student.ad}}</th>
+                <th><button type="submit">Update</button></th>
+            </form>
+        </tr>
+        
+    </table>
+
+    <hr>
+
+
+
+</body>
+</html>
